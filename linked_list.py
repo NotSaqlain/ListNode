@@ -18,10 +18,10 @@ class linked_list:
         cur.next = new_node
 
     def append_at_beginning(self, data):
-        new_node = Node(data)
-        new_node.next = self.head.next
-        self.head.next = new_node
-            
+        new_node = Node(data)     # crea un nuovo node (es: 0)
+        new_node.next = self.head.next # aggiunge il primo nodo della lista collegata al successivo del nuovo nodo (es: 0 -> 0, 1)
+        self.head.next = new_node  # aggiunge il nuovo nodo modificato (0, 1) alla testa della lista collegata
+
 
     def length(self):
         cur = self.head
