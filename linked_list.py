@@ -37,6 +37,20 @@ class linked_list:
         new_node.next = cur.next
         cur.next = new_node
 
+
+    def update_at_index(self, index, data):
+        new_node = Node(data)
+        cur = self.head
+        if index >= self.length():
+            print("Error: 'Index' out of range")
+            return None
+        
+        cur_index = -1
+        while cur_index < index:
+            cur = cur.next
+            cur_index += 1
+        cur.data = new_node.data
+
     def length(self):
         cur = self.head
         total = 0
@@ -55,7 +69,7 @@ class linked_list:
         if index > self.length():
             print("Error: 'Get' index out of range")
             return None
-        cur_index = 0
+        cur_index = -1
         cur = self.head
         while cur_index < index:
             cur = cur.next
@@ -74,11 +88,12 @@ def main():
     link.append(5)
     link.append_at_beginning(0)
     link.append_at_index(2, 2)
+    link.update_at_index(5, 6)
 
     # print(f"the {link.length()} elemrnets in the linked list are: ")
     # link.print_list()
 
-    print(f"the 7a element is: {link.get(7)}")
+    print(f"the index 3 is: {link.get(3)}")
 
     print(f"length of the linked list is: {link.length()}")
 
