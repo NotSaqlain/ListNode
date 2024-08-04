@@ -19,8 +19,8 @@ class linked_list:
 
     def append_at_beginning(self, data):
         new_node = Node(data)     # crea un nuovo node (es: 0)
-        new_node.next = self.head.next # aggiunge il primo nodo della lista collegata al successivo del nuovo nodo (es: 0 -> 0, 1)
-        self.head.next = new_node  # aggiunge il nuovo nodo modificato (0, 1) alla testa della lista collegata
+        new_node.next = self.head.next # aggiunge il primo node della lista collegata al successivo del nuovo nodo (es: 0 -> 0, 1)
+        self.head.next = new_node  # aggiunge il nuovo node modificato (0, 1) alla testa della lista collegata
 
     def append_at_index(self, index, data):
         new_node = Node(data)
@@ -75,6 +75,12 @@ class linked_list:
             cur = cur.next
             cur_index += 1
         return cur.data
+
+    def remove_at_beginning(self):
+        if self.head is None:
+            return
+        else:
+            self.head = self.head.next
         
 
 def main():
@@ -89,6 +95,7 @@ def main():
     link.append_at_beginning(0)
     link.append_at_index(2, 2)
     link.update_at_index(5, 6)
+    link.remove_at_beginning()
 
     # print(f"the {link.length()} elemrnets in the linked list are: ")
     # link.print_list()
