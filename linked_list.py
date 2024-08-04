@@ -82,6 +82,22 @@ class linked_list:
         else:
             self.head = self.head.next
         
+    def remove_at_end(self):
+        cur = self.head
+        while cur.next.next != None:
+            cur = cur.next
+        cur.next = None
+    
+    def remove_at_index(self, index):
+        if index >= self.length():
+            print("Error: 'Index' out of range")
+            return None
+        cur_index = 0
+        cur = self.head
+        while cur_index < index:
+            cur = cur.next
+            cur_index += 1
+        cur.next = cur.next.next
 
 def main():
 
@@ -96,6 +112,8 @@ def main():
     link.append_at_index(2, 2)
     link.update_at_index(5, 6)
     link.remove_at_beginning()
+    link.remove_at_end()
+    link.remove_at_index(2)
 
     # print(f"the {link.length()} elemrnets in the linked list are: ")
     # link.print_list()
@@ -105,6 +123,7 @@ def main():
     print(f"length of the linked list is: {link.length()}")
 
     link.print_list()
+
 
 
 if __name__ == "__main__":
