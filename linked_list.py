@@ -37,6 +37,10 @@ class linked_list:
             print("Error: 'Get' index out of range")
             return None
         cur = self.head
+        while cur.next != None:
+            cur = cur.next
+            if cur.data == index:
+                return cur.data
         
 
 def main():
