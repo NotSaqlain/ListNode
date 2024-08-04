@@ -22,6 +22,20 @@ class linked_list:
         new_node.next = self.head.next # aggiunge il primo nodo della lista collegata al successivo del nuovo nodo (es: 0 -> 0, 1)
         self.head.next = new_node  # aggiunge il nuovo nodo modificato (0, 1) alla testa della lista collegata
 
+    def append_at_index(self, index, data):
+        new_node = Node(data)
+        cur = self.head
+
+        if index >= self.length():
+            print("Error: 'Index' out of range")
+            return None
+        
+        cur_index = 0
+        while cur_index < index:
+            cur = cur.next
+            cur_index += 1
+        new_node.next = cur.next
+        cur.next = new_node
 
     def length(self):
         cur = self.head
@@ -38,7 +52,7 @@ class linked_list:
             print(cur.data)
 
     def get(self, index):
-        if index >= self.length():
+        if index > self.length():
             print("Error: 'Get' index out of range")
             return None
         cur_index = 0
@@ -59,11 +73,14 @@ def main():
     link.append(4)
     link.append(5)
     link.append_at_beginning(0)
+    link.append_at_index(2, 2)
 
     # print(f"the {link.length()} elemrnets in the linked list are: ")
     # link.print_list()
 
-    print(f"the element at index 2 is: {link.get(2)}")
+    print(f"the 7a element is: {link.get(7)}")
+
+    print(f"length of the linked list is: {link.length()}")
 
     link.print_list()
 
