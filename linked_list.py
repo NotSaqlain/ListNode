@@ -17,6 +17,13 @@ class linked_list:
             cur = cur.next
         cur.next = new_node
 
+    def append_at_beginning(self, data):
+        new_node = Node(data)
+        if self.head == None:
+            self.head = new_node
+        else:
+            new_node.next = self.head
+            self.head = new_node
 
     def length(self):
         cur = self.head
@@ -55,10 +62,14 @@ def main():
     link.append(5)
 
 
-    print(f"the {link.length()} elemrnets in the linked list are: ")
-    link.print_list()
+    # print(f"the {link.length()} elemrnets in the linked list are: ")
+    # link.print_list()
 
     print(f"the element at index 2 is: {link.get(2)}")
+
+    link.append_at_beginning(0)
+
+    link.print_list()
 
 
 if __name__ == "__main__":
