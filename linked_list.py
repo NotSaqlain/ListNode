@@ -36,11 +36,12 @@ class linked_list:
         if index >= self.length():
             print("Error: 'Get' index out of range")
             return None
+        cur_index = 0
         cur = self.head
-        while cur.next != None:
+        while cur_index < index:
             cur = cur.next
-            if cur.data == index:
-                return cur.data
+            cur_index += 1
+        return cur.data
         
 
 def main():
@@ -48,7 +49,7 @@ def main():
     # create a linked list
     link = linked_list()
     link.append(1)
-    link.append(2)
+    link.append(10)
     link.append(3)
     link.append(4)
     link.append(5)
@@ -56,6 +57,8 @@ def main():
 
     print(f"the {link.length()} elemrnets in the linked list are: ")
     link.print_list()
+
+    print(f"the element at index 2 is: {link.get(2)}")
 
 
 if __name__ == "__main__":
